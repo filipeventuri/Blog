@@ -11,7 +11,7 @@ const app = express();
 
 //config view engine e arquivos estáticos
 app.set("view engine", "ejs");
-app.set(express.static("public"));
+app.use(express.static("public"));
 
 //config bodyParser
 app.use(bodyParser.urlencoded({extended:false}));

@@ -14,24 +14,26 @@
                 <th>ID</th>
                 <th>Título</th>
                 <th>Slug</th>
-                <th>Ações</th>
+                <th>Categoria</th>
             </tr>
         </thead>
-<% categories.forEach((one)=>{ %>
+        <% categories.forEach((one)=>{ %>
     <tbody>
-        <th><%= one.id %></th>
-        <th><%= one.title %></th>
-        <th><%= one.slug %></th>
-        <th>
-            <a class="btn btn-warning" href="/admin/categories/edit/<%= one.id %>">Editar</a>
-            <form method="POST" action="/categories/delete" style="display: inline;" onsubmit="sure(event,this)">
-            <input type="hidden" name="id" value="<%= one.id %>">
-            <button class="btn btn-danger">Remover</button>
-            </form>
-        </th>
+        
+            <th><%= one.id %></th>
+            <th><%= one.title %></th>
+            <th><%= one.slug %></th>
+            <th>
+                <a class="btn btn-warning" href="/admin/categories/edit/<%= one.id %>">Editar</a>
+                <form method="POST" action="/categories/delete" style="display: inline;" onsubmit="sure(event,this)">
+                <input type="hidden" name="id" value="<%= one.id %>">
+                <button class="btn btn-danger">Remover</button>
+                </form>
+            </th>
+            
+          
     </tbody>
-<% }) %>
-      
+    <% }) %>
     </table>
 </div>
 <%- include ("../../partials/footer.ejs") %>

@@ -1,5 +1,6 @@
 const sequelize = require("sequelize");
 const connection = require("../database/db");
+const Category = require("../categories/Category");
 
 const Article = connection.define("articles", {
     title:{
@@ -17,5 +18,8 @@ const Article = connection.define("articles", {
     
 })
 Article.sync({force:false});
+
+
+
 
 module.exports = Article;

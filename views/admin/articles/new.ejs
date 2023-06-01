@@ -7,10 +7,18 @@
             <h2> Novo Artigo</h2>
         </div>
         <div class="card-body">
-            <form method="get" action="/admin/articles/new">
+            <form method="post" action="/articles/save">
                 <input  class="form-control" type="text" name="title" placeholder="defina o titulo do Artigo">
                 <br>
                 <textarea class="form-control" placeholder="Escreva seu Artigo aqui" name="body" id="article"></textarea>
+                <br>
+                <label>Categoria</label>
+                <br>
+                <select class="form-control" name="category">
+                    <% categories.forEach((category)=>{ %>
+                        <option value="<%= category.id %>"><%= category.title %></option>
+                    <% }) %>
+                </select>
                 <br>
                 <button class="btn btn-success">Enviar</button>
             </form>
@@ -18,7 +26,9 @@
 
     </div>
 </div>
+
 <%- include ("../../partials/footer.ejs") %>
+
 <script src="/tinymce/js/tinymce/tinymce.min.js"></script>
 <script>
     tinymce.init({

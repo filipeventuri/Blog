@@ -1,0 +1,33 @@
+<%- include ("../../partials/header") %>
+<%- include ("../../partials/navbar") %>
+<div class="container">
+    <hr>
+    <h2> Artigos</h2>
+    <br>
+    <a class="btn btn-success" href="/admin/articles/new">Criar novo artigo</a>
+    <hr>
+    
+   
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Slug</th>
+                <th>Categoria</th>
+            </tr>
+        </thead>
+        <% articles.forEach(one=>{ %>
+    <tbody> 
+        
+            <th><%= one.id %></th>
+            <th><%= one.title %></th>
+            <th><%= one.slug %></th>
+            <th><%= one.CategoryId %></th>
+            
+    </tbody>
+    <% }) %>
+      
+    </table>
+</div>
+<%- include ("../../partials/footer.ejs") %>

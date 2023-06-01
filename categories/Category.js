@@ -15,6 +15,7 @@ const Category = connection.define('categories', {
 })
 
 Category.sync({force:false});
+Article.belongsTo(Category);
 Category.hasMany(Article);
 
 

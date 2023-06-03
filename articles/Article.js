@@ -6,8 +6,7 @@ const Article = connection.define("articles", {
     title:{
         type: sequelize.STRING,
         allowNull:false
-    },
-    slug:{
+    },slug:{
         type: sequelize.STRING,
         allowNull:false
     },
@@ -17,6 +16,11 @@ const Article = connection.define("articles", {
     }
     
 })
+
+
+Category.hasMany(Article); 
+Article.belongsTo(Category);
+
 Article.sync({force:false});
 
 

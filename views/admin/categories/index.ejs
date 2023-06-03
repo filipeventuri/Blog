@@ -24,11 +24,11 @@
             <th><%= one.title %></th>
             <th><%= one.slug %></th>
             <th>
-                <a class="btn btn-warning" href="/admin/categories/edit/<%= one.id %>">Editar</a>
-                <form method="POST" action="/categories/delete" style="display: inline;" onsubmit="sure(event,this)">
-                <input type="hidden" name="id" value="<%= one.id %>">
-                <button class="btn btn-danger">Remover</button>
-                </form>
+            <a class="btn btn-warning" href="/admin/categories/edit/<%= one.id %>" >Editar</a>
+            <form method="POST" action="/categories/delete" style="display: inline;" onsubmit="sure(event,this)">
+            <input type="hidden" name="id" value="<%= one.id %>">
+            <button class="btn btn-danger">Remover</button>
+            </form>
             </th>
             
           

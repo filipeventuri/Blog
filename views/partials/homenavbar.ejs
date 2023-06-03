@@ -1,12 +1,10 @@
 <div class="navbar navbar-dark bg-primary navbar-expand-lg">
     <a class="navbar-brand logo" href="/">DOCE FREE </a>
     <ul class="navbar-nav mr-auto">
+    <% categories.forEach(categories=>{ %>
         <li class="nav-item">
-            <a class="nav-link" href="/admin/categories">Categorias</a>
+            <a class="nav-link" href="/categories/<%= categories.slug %>"><%= categories.title %></a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/admin/articles">Artigos</a>
-        </li>
-
+    <% }) %>
     </ul>
 </div>

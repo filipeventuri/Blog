@@ -3,8 +3,11 @@ const connection = require('./database/db');
 const bodyParser = require('body-parser');
 const CategoriesController = require("./categories/CategoriesController");
 const ArticlesController = require("./articles/ArticlesController");
+const UserController = require("./users/UserController");
 const Category = require("./categories/Category");
 const Article = require("./articles/Article");
+const User = require("./users/User");
+
 
 const app = express();
 
@@ -26,6 +29,7 @@ connection.authenticate().then(()=>{
 
 app.use("/", CategoriesController);
 app.use("/", ArticlesController);
+app.use("/", UserController);
 //quer dizer que app está usando as rotas que estão dentro de categoriesController e articlesController
 
 
@@ -34,7 +38,8 @@ app.get('/', (req,res)=>{
         include: [{model:Category}],
         order: [
             ['id', 'DESC']
-        ]
+        ],
+        limit:4
     }).then(articles=>{
         Category.findAll().then(categories=>{
             res.render("index", {articles:articles, categories:categories})

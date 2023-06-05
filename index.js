@@ -7,6 +7,7 @@ const UserController = require("./users/UserController");
 const Category = require("./categories/Category");
 const Article = require("./articles/Article");
 const User = require("./users/User");
+const session = require("express-session");
 
 
 const app = express();
@@ -15,6 +16,16 @@ const app = express();
 //config view engine e arquivos estáticos
 app.set("view engine", "ejs");
 app.use(express.static("public"));
+
+//configuração das sessões
+
+app.use(session({
+    secret:"uguturhqwndpqowijdh", // o secret é como se fosse o salt do crypt
+    cookie: {
+        maxAge: 7200000 //o tempo para destruir os cookies automaticamente 30000 milisegundos
+    }
+
+}))
 
 //config bodyParser
 app.use(bodyParser.urlencoded({extended:false}));
@@ -32,6 +43,14 @@ app.use("/", ArticlesController);
 app.use("/", UserController);
 //quer dizer que app está usando as rotas que estão dentro de categoriesController e articlesController
 
+
+app.get("/session", (req,res)=>{
+
+});
+
+app.get("/read", (req,res)=>{
+    
+});
 
 app.get('/', (req,res)=>{
     Article.findAll({

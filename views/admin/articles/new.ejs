@@ -2,13 +2,13 @@
 <%- include ("../../partials/navbar") %>
 <div class="container">
     <hr>
-    <div class="card">
+    <div class="card mb-5">
         <div class="card-header">
             <h2> Novo Artigo</h2>
         </div>
         <div class="card-body">
             <form method="post" action="/articles/save">
-                <input  class="form-control" type="text" name="title" placeholder="defina o titulo do Artigo">
+                <input  class="form-control" type="text" name="title" placeholder="Defina o título do Artigo">
                 <br>
                 <textarea class="form-control" placeholder="Escreva seu Artigo aqui" name="body" id="article"></textarea>
                 <br>

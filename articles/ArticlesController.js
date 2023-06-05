@@ -52,7 +52,7 @@ router.post("/articles/delete", (req,res)=>{
     }
 })
 
-router.get("/admin/articles/edit/:id", (req,res)=>{
+router.get("/admin/articles/edit/:id", adminAuth ,(req,res)=>{
     var id = req.params.id;
 
     if(isNaN(id)){

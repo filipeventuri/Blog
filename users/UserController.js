@@ -3,8 +3,9 @@ const router = express.Router();
 const User = require("./User");
 const bcrypt = require("bcryptjs");
 const Category = require("../categories/Category");
+const adminAuth = require("../middlewares/adminAuth");
 
-router.get("/admin/users/create", (req,res)=>{
+router.get("/admin/users/create", adminAuth ,(req,res)=>{
     res.render("admin/users/create");
 })
 
@@ -33,7 +34,7 @@ router.post("/users/create", (req,res)=>{
     //acima está a forma correta de armazenar a senha de um usuário no banco de dados
 })
 
-router.get("/admin/users", (req,res)=>{
+router.get("/admin/users", adminAuth ,(req,res)=>{
     User.findAll().then((users)=>{
         res.render("admin/users/index", {users:users});  
     })
@@ -55,7 +56,7 @@ router.post("/users/delete", (req,res)=>{
     }
 })
 
-router.get("/admin/users/edit/:id", (req,res)=>{
+router.get("/admin/users/edit/:id", adminAuth ,(req,res)=>{
     var id = req.params.id;
 
     if(isNaN(id)){
@@ -124,7 +125,7 @@ router.post("/authenticate", (req,res)=>{
     })
 });
 
-router.get("/logout", (req,res)=>{
+router.get("/logout", adminAuth ,(req,res)=>{
     req.session.user = undefined;
     res.redirect("/");
 })

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Category = require("./Category");
+const Article = require("../articles/Article");
 const slug = require("slugify");
 const { default: slugify } = require('slugify');
 const adminAuth = require("../middlewares/adminAuth");
@@ -38,7 +39,14 @@ router.post("/categories/delete", (req,res)=>{
                 id:id
             }
         }).then(()=>{
-            res.redirect("/admin/categories")
+            Article.destroy({
+                where:{
+                    categoryId:null
+                }
+            }).then(()=>{
+                res.redirect("/admin/categories")
+            })
+            
         })
     }else{
         res.redirect("/");

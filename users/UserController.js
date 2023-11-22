@@ -12,6 +12,7 @@ router.get("/admin/users/create", adminAuth ,(req,res)=>{
 router.post("/users/create", (req,res)=>{
     var email = req.body.email;
     var password = req.body.password;
+    if(email == undefined || password == undefined) console.log("INDEFINIDO")
     var salt = bcrypt.genSaltSync(10); // NUMERO ALEATÓRIO PRA GERAR O SALT
     var hash= bcrypt.hashSync(password, salt);
 

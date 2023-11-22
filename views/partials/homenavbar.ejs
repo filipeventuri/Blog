@@ -1,12 +1,21 @@
-<div class="navbar navbar-dark bg-primary navbar-expand-lg">
-    <a class="navbar-brand logo" href="/">NOTEMON </a>
-    <ul class="navbar-nav mr-auto">
-    <% categories.forEach(categories=>{ %>
-        <li class="nav-item">
-            <a class="nav-link" href="/categories/<%= categories.slug %>"><%= categories.title %></a>
-        </li>
-    <% }) %>
+<nav class="navbar navbar-dark bg-primary navbar-expand-md">
+    <a class="navbar-brand logo fs-3 ms-3" href="/">NOTEMON </a>
     
-    </ul>
-    <a class="btn btn-success" style="float: right;" href="/login">Login</a>
+
+
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse " data-bs-target='#btn' >
+<i class='bx bx-menu'></i>
+</button>
+
+<div class=" collapse navbar-collapse " id="btn">
+    <ul class="navbar-nav ms-auto">
+        <% categories.forEach(categories=>{ %>
+            <li class="nav-item">
+                <a class="nav-link mx-2" href="/categories/<%= categories.slug %>"><%= categories.title %></a>
+            </li>
+        <% }) %>
+        
+        </ul>
 </div>
+
+</nav>
